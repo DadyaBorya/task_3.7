@@ -33,8 +33,8 @@ const App: FC = () => {
                     (
                         <>
                             <Route path={"/"} element={store.isAuth ? <ClientForm/> : <Navigate to={"/login"}/> }/>
-                            <Route path={"/registration"} element={<RegisterForm/>}/>
-                            <Route path={"/login"} element={<LoginForm/>}/>
+                            <Route path={"/registration"} element={store.isAuth ? <ClientForm/>:<RegisterForm/>}/>
+                            <Route path={"/login"} element={store.isAuth ? <ClientForm/>:<LoginForm/>}/>
                             <Route path={"/client"} element={store.isAuth ? <ClientForm/> : <Navigate to="/login"/>}/>
                             <Route path={"/carrier"} element={store.isAuth ? <CarrierForm/> : <Navigate to="/login"/>}/>
                         </>
